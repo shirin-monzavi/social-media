@@ -1,13 +1,11 @@
-
-import appName  from "./includes/variable";
+import Header from "./components/Header";
+import Posts from "./components/Posts";
 
 function App() {
-  console.log(appName);
-
   return (
     <div>
-          <h1>{appName}</h1>
-          here my content goes in.
+      <Header />
+      <Posts />
     </div>
   );
 }
