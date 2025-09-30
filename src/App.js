@@ -1,13 +1,15 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Posts from "./components/Posts";
+import Form from './components/Forms'
 
-function App() {
+export default function App() {
   return (
-    <div>
+    <>
       <Header />
       <Posts />
-    </div>
+      <Form />
+      <Footer />
+    </>
   );
 }
-
-export default App;

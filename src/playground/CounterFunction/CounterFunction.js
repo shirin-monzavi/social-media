@@ -1,5 +1,7 @@
-export default function CounterFunction() {
+export default function CounterFunction(props) {
+    const { title, agree } = props;
+
     return (
-        <p>This is a content for counter function.</p>
+        <p>{title} {agree ? 'Yes' : 'NO'}</p>
     )
 }
