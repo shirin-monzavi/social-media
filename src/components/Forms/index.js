@@ -6,15 +6,16 @@ export default function Form() {
 
     const handle1 = (e) => {
         e.preventDefault();
-        console.log({title})
-    }
-
-    const handleTitle = (e) => {
-        setTitle(e.target.value)
+        console.log({ title })
     }
     return (<>
         <form onSubmit={handle1}>
-            <input type="text" value={title} onChange={handleTitle} />
+            <input type="text"
+                value={title}
+                onChange={(e) => { setTitle(e.target.value) }}
+                placeholder="Enter the title"
+                maxLength={5}
+            />
             <div>
                 {title}
             </div>
