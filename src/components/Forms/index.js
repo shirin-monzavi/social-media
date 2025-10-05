@@ -6,7 +6,8 @@ export default function Form() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-
+    const [promote, setPromote] = useState(false);
+    const [status, setStatues] = useState('');
     const categories = [
         {
             id: 'edu',
@@ -29,13 +30,26 @@ export default function Form() {
             title: 'Other'
         }
     ]
+
+    const statuses =
+        [
+            { id: 'd', text: 'Draft' },
+            { id: 'p', text: 'Published' },
+            { id: 'a', text: 'Archived' },
+        ];
+
     const handle1 = (e) => {
         e.preventDefault();
         console.log({ title })
         console.log({ description })
         console.log({ category })
+        console.log({ promote })
+        console.log({ status })
     }
 
+    const handleStatus = (e) => {
+        setStatues(e.target.value)
+    }
     return (
         <form onSubmit={handle1}>
             <br />
@@ -77,6 +91,28 @@ export default function Form() {
                     </select>
                 </label>
             </div>
+
+            <div>
+                <label>
+                    <input type="checkbox" checked={promote} onChange={(e) => setPromote(e.target.checked)} />
+                    Promote
+                </label>
+            </div>
+
+            <div>
+                Status:
+                {statuses.map((item) =>
+                    <label key={item.id}>
+                        <input type="radio"
+                            value={item.id}
+                            onChange={handleStatus}
+                            checked={item.id === status}
+                        />
+                        {item.text}
+                    </label>
+                )}
+            </div>
+
             <button>Add Post</button>
         </form>
     );
