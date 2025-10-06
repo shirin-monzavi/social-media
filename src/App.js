@@ -9,8 +9,6 @@ export default function App() {
   return (
     <>
       <Header />
-      <ClassCounter />
-      <ClassFunction />
       <Posts />
       <Form />
       <Footer />

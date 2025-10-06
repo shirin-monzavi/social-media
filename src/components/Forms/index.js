@@ -50,6 +50,13 @@ export default function Form() {
     const handleStatus = (e) => {
         setStatues(e.target.value)
     }
+    const handleFile = (e) => {
+        const files = [...e.target.files];
+        files.forEach((f) => {
+            console.log(f);
+        })
+
+    }
     return (
         <form onSubmit={handle1}>
             <br />
@@ -113,6 +120,9 @@ export default function Form() {
                 )}
             </div>
 
+            <div>
+                <input type="file" multiple={true} accept="image/*" onChange={handleFile} />
+            </div>
             <button>Add Post</button>
         </form>
     );
