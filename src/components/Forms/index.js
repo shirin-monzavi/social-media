@@ -1,4 +1,3 @@
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 
 export default function Form() {
@@ -8,6 +7,7 @@ export default function Form() {
     const [category, setCategory] = useState('');
     const [promote, setPromote] = useState(false);
     const [status, setStatues] = useState('');
+    const [picture, setPicture] = useState('');
     const categories = [
         {
             id: 'edu',
@@ -45,17 +45,18 @@ export default function Form() {
         console.log({ category })
         console.log({ promote })
         console.log({ status })
+        console.log(picture)
     }
 
     const handleStatus = (e) => {
         setStatues(e.target.value)
     }
     const handleFile = (e) => {
-        const files = [...e.target.files];
-        files.forEach((f) => {
-            console.log(f);
-        })
-
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(e.target.files[0]);
+        fileReader.onload = (event) => {
+            setPicture(event.target.result)
+        }
     }
     return (
         <form onSubmit={handle1}>
@@ -120,9 +121,12 @@ export default function Form() {
                 )}
             </div>
 
-            <div>
-                <input type="file" multiple={true} accept="image/*" onChange={handleFile} />
-            </div>
+            <fieldset>
+                <legend>Picture</legend>
+                <input type="file" onChange={handleFile} />
+                <img src={picture} width={200} alt="Preview" />
+            </fieldset>
+
             <button>Add Post</button>
         </form>
     );
