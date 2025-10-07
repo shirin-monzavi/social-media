@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Form() {
+export default function Form({onHandleAddPost}) {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -38,14 +38,15 @@ export default function Form() {
             { id: 'a', text: 'Archived' },
         ];
 
-    const handle1 = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log({ title })
         console.log({ description })
         console.log({ category })
         console.log({ promote })
         console.log({ status })
-        console.log(picture)
+        console.log(picture);
+        onHandleAddPost(title);
     }
 
     const handleStatus = (e) => {
@@ -59,7 +60,7 @@ export default function Form() {
         }
     }
     return (
-        <form onSubmit={handle1}>
+        <form onSubmit={handleSubmit}>
             <br />
             <div>
                 <label htmlFor="title">
