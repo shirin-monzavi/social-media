@@ -1,6 +1,6 @@
 import Post from "./Post";
 
-export default function Posts({posts,onPostLike,onPostDislike}) {
+export default function Posts({ posts, onPostLike, onPostDislike }) {
     let totalLike = 0;
     let totalDislike = 0;
 
@@ -14,13 +14,11 @@ export default function Posts({posts,onPostLike,onPostDislike}) {
             <h2>List of posts</h2>
             {
                 posts.map((post, index) => {
+                    console.log(post)
                     return (
                         <Post
-                            id={post.id}
                             key={index}
-                            title={post.title}
-                            like={post.like}
-                            dislike={post.dislike}
+                            {...post}
                             onPostLike={onPostLike}
                             onPostDislike={onPostDislike}
                         />

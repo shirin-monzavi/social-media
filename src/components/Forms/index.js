@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Form({onHandleAddPost}) {
+export default function Form({ onHandleAddPost }) {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -58,17 +58,15 @@ export default function Form({onHandleAddPost}) {
         }
 
         setErrorMessage(errorMessage);
-        if (errorMessage.length > 0) {
-            console.log(errorMessage);
-            return;
+        if (errorMessage.length === 0) {
+            onHandleAddPost(title,description,promote,picture,category,status);
         }
-        onHandleAddPost(title);
     }
 
     const handleStatus = (e) => {
         setStatues(e.target.value)
     }
-    
+
     const handleFile = (e) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(e.target.files[0]);

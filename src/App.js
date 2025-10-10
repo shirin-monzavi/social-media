@@ -6,26 +6,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
-  const [posts, setPost] = useState([
-    {
-      id: uuidv4(),
-      title: "What is this",
-      like: 10,
-      dislike: 5
-    },
-    {
-      id: uuidv4(),
-      title: "How to do it",
-      like: 10,
-      dislike: 7
-    },
-    {
-      id: uuidv4(),
-      title: "Where to find it",
-      like: 10,
-      dislike: 7
-    },
-  ]);
+  const [posts, setPost] = useState([]);
 
   const handlePostLike = (id) => {
     const updatedPost = [...posts];
@@ -49,15 +30,19 @@ export default function App() {
     setPost(updatedPost);
   }
 
-  const handleAddPost = (title) => {
+  const handleAddPost = (title,description,promote,picture,category,status) => {
     const updatedPost = [...posts];
 
     updatedPost.push({
       id: uuidv4(),
-      title:title,
-      like: 10,
-      dislike: 7
-
+      title,
+      description,
+      promote,
+      picture,
+      category,
+      like: 0,
+      dislike: 0,
+      status
     });
 
     setPost(updatedPost);
@@ -69,7 +54,6 @@ export default function App() {
       <Posts posts={posts}
         onPostLike={handlePostLike}
         onPostDislike={handlePostDisLike}
-
       />
       <Form onHandleAddPost={handleAddPost} />
       <Footer />
