@@ -20,6 +20,5 @@ export default function Post({ id, title, description, picture, promote, categor
             <p>DisLike Counter {dislike} <button type="button" onClick={handleDisLike}>DisLike</button></p>
             <hr />
         </>
-
     )
 }

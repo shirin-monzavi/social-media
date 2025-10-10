@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Form({ onHandleAddPost }) {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [promote, setPromote] = useState(false);
+    const [promote, setPromote] = useState(true);
     const [status, setStatues] = useState('');
     const [errorMessages, setErrorMessage] = useState([]);
-
+    const [showMessage, setShowMessage] = useState(false);
     const [picture, setPicture] = useState('');
+    const inputFile = useRef();
     const categories = [
         {
             id: 'edu',
@@ -58,8 +59,18 @@ export default function Form({ onHandleAddPost }) {
         }
 
         setErrorMessage(errorMessage);
+        setShowMessage(false)
+
         if (errorMessage.length === 0) {
-            onHandleAddPost(title,description,promote,picture,category,status);
+            onHandleAddPost(title, description, promote, picture, category, status);
+            setTitle('');
+            setCategory('');
+            setDescription('');
+            setPromote(true);
+            setPicture('');
+            setStatues('');
+            inputFile.current.value = '';
+            setShowMessage(true)
         }
     }
 
@@ -77,6 +88,12 @@ export default function Form({ onHandleAddPost }) {
 
     return (
         <form onSubmit={handleSubmit}>
+            <hr />
+            {showMessage && (<>
+                <p>
+                    <strong>Form has been submitted !</strong>
+                </p>
+            </>)}
             <hr />
             {errorMessages.length > 0 &&
                 <div>
@@ -149,7 +166,7 @@ export default function Form({ onHandleAddPost }) {
 
             <fieldset>
                 <legend>Picture</legend>
-                <input type="file" onChange={handleFile} />
+                <input type="file" onChange={handleFile} ref={inputFile} />
                 <img src={picture} width={200} alt="Preview" />
             </fieldset>
 

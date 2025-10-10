@@ -14,7 +14,6 @@ export default function Posts({ posts, onPostLike, onPostDislike }) {
             <h2>List of posts</h2>
             {
                 posts.map((post, index) => {
-                    console.log(post)
                     return (
                         <Post
                             key={index}
