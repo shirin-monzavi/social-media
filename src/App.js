@@ -4,6 +4,7 @@ import Posts from "./components/Posts";
 import Form from './components/Forms'
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import Playground from './playground/playground';
 
 export default function App() {
   const [posts, setPost] = useState([]);
@@ -50,13 +51,14 @@ export default function App() {
 
   return (
     <>
-      <Header />
+    <Playground />
+      {/* <Header />
       <Posts posts={posts}
         onPostLike={handlePostLike}
         onPostDislike={handlePostDisLike}
       />
       <Form onHandleAddPost={handleAddPost} />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
