@@ -1,7 +1,6 @@
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 
-export default function Form() {
+export default function Form({onHandleAddPost}) {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -10,6 +9,7 @@ export default function Form() {
     const [status, setStatues] = useState('');
     const [errorMessages, setErrorMessage] = useState([]);
 
+    const [picture, setPicture] = useState('');
     const categories = [
         {
             id: 'edu',
@@ -40,7 +40,7 @@ export default function Form() {
             { id: 'a', text: 'Archived' },
         ];
 
-    const handle1 = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         let errorMessage = [];
 
@@ -60,22 +60,25 @@ export default function Form() {
         setErrorMessage(errorMessage);
         if (errorMessage.length > 0) {
             console.log(errorMessage);
+            return;
         }
-        else {
-            console.log({ title })
-            console.log({ description })
-            console.log({ category })
-            console.log({ promote })
-            console.log({ status })
-        }
+        onHandleAddPost(title);
     }
 
     const handleStatus = (e) => {
         setStatues(e.target.value)
     }
+    
+    const handleFile = (e) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(e.target.files[0]);
+        fileReader.onload = (event) => {
+            setPicture(event.target.result)
+        }
+    }
 
     return (
-        <form onSubmit={handle1}>
+        <form onSubmit={handleSubmit}>
             <hr />
             {errorMessages.length > 0 &&
                 <div>
@@ -145,6 +148,12 @@ export default function Form() {
                     </label>
                 )}
             </div>
+
+            <fieldset>
+                <legend>Picture</legend>
+                <input type="file" onChange={handleFile} />
+                <img src={picture} width={200} alt="Preview" />
+            </fieldset>
 
             <button>Add Post</button>
         </form>

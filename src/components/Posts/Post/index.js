@@ -1,6 +1,5 @@
 export default function Post({ id, title, like, dislike, onPostLike, onPostDislike }) {
 
-
     const handleLike = () => {
         onPostLike(id)
     }
