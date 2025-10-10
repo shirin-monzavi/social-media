@@ -8,6 +8,8 @@ export default function Form() {
     const [category, setCategory] = useState('');
     const [promote, setPromote] = useState(false);
     const [status, setStatues] = useState('');
+    const [errorMessages, setErrorMessage] = useState([]);
+
     const categories = [
         {
             id: 'edu',
@@ -40,18 +42,49 @@ export default function Form() {
 
     const handle1 = (e) => {
         e.preventDefault();
-        console.log({ title })
-        console.log({ description })
-        console.log({ category })
-        console.log({ promote })
-        console.log({ status })
+        let errorMessage = [];
+
+        if (title === '') {
+            errorMessage.push("Title is required.")
+        }
+        if (description === '') {
+            errorMessage.push("Description is required.")
+        }
+        if (category === '') {
+            errorMessage.push("Category is required.")
+        }
+        if (status === '') {
+            errorMessage.push("Status is required.")
+        }
+
+        setErrorMessage(errorMessage);
+        if (errorMessage.length > 0) {
+            console.log(errorMessage);
+        }
+        else {
+            console.log({ title })
+            console.log({ description })
+            console.log({ category })
+            console.log({ promote })
+            console.log({ status })
+        }
     }
 
     const handleStatus = (e) => {
         setStatues(e.target.value)
     }
+
     return (
         <form onSubmit={handle1}>
+            <hr />
+            {errorMessages.length > 0 &&
+                <div>
+                    Invalid Data:
+                    <ul>
+                        {errorMessages.map((m) => <li>{m}</li>)}
+                    </ul>
+                </div>
+            }
             <br />
             <div>
                 <label htmlFor="title">
