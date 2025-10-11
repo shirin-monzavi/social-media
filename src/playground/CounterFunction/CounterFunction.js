@@ -8,9 +8,11 @@ export default function CounterFunction(props) {
         inputRef.current.value = "Ok!";
 
     }
+    console.log('Function component rendered');
+
     return (
         <>
-            <p>{title} {agree ? 'Yes' : 'NO'}</p>
+            <p>{title} for {props.userName}  {agree ? 'Yes' : 'NO'}</p>
             <input type="text" placeholder="Please focus" ref={inputRef} />
             <button type="button" onClick={handleClick}>Press button</button>
         </>

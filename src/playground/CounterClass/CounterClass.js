@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 class CounterClass extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             counter: 1,
             status: "none"
@@ -21,9 +21,9 @@ class CounterClass extends React.Component {
             this.setState({ counter: this.state.counter - 1, status: "Decreased" });
             this.inputRefDecrease.current.focus();
         }
-
+        console.log('Class component rendered');
         return <>
-            <p>Counter {this.state.counter}</p>
+            <p>Counter for {this.props.userName} {this.state.counter}</p>
             <p>Last Action: {this.state.status}</p>
             <input type="text"
                 placeholder='Focous on increase'
