@@ -7,13 +7,14 @@ export default function Playground() {
     const maxCount = 200;
     const primeN = Prime(maxCount);
     const [user, setUserName] = useState('Mary');
-
-    console.log('Playground rendered');
-
     const [displayClassCom, setDisplayClassCom] = useState(false);
+    const [displayFunctionCom, setDisplayFunctionCom] = useState(false);
+
     const handleUserName = () => {
         setUserName('Shirin')
     }
+
+    console.log('Playground rendered');
 
     return (
         <>
@@ -31,10 +32,18 @@ export default function Playground() {
                     checked={displayClassCom}
                 />
             </label>
-            <CounterClass userName={user} />
+            {displayClassCom && (<CounterClass userName={user} />)}
+
             <hr />
             <h2>Counter Function:</h2>
-            <CounterFunction userName={user} />
+            <label>
+                Display Function Counter:
+                <input type="checkbox"
+                    onChange={(e) => setDisplayFunctionCom(e.target.checked)}
+                    checked={displayFunctionCom} />
+            </label>
+            {displayFunctionCom && <CounterFunction userName={user} />}
+
             <hr />
         </>
     )
