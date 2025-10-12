@@ -1,11 +1,10 @@
-import Prime from "./prime.js";
+
 import CounterClass from "./CounterClass/CounterClass.js";
 import CounterFunction from "./CounterFunction/CounterFunction.js";
 import { useState } from "react";
 
 export default function Playground() {
-    const maxCount = 200;
-    const primeN = Prime(maxCount);
+
     const [user, setUserName] = useState('Mary');
     const [displayClassCom, setDisplayClassCom] = useState(false);
     const [displayFunctionCom, setDisplayFunctionCom] = useState(false);
@@ -20,9 +19,7 @@ export default function Playground() {
         <>
             <button onClick={handleUserName}>Change Name</button>
             <h1>Playground</h1>
-            <p> The max number is {maxCount}</p>
 
-            <p> The max prime number is {primeN}</p>
             <hr />
             <h2>Counter Class:</h2>
             <label>
