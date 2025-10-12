@@ -2,14 +2,38 @@ import React, { createRef } from 'react';
 import Prime from "./../prime.js";
 class CounterClass extends React.Component {
     constructor(props) {
+
         super(props);
+        // this.setState({ isCalculating: true });
+
+        // setInterval(() => {
+        //     const maxCount = 200000000;
+        //     const primeN = Prime(maxCount);
+        //     this.setState({
+        //         primeNumer: primeN,
+        //         maxPrimeNumer: maxCount,
+        //         isCalculating: false
+        //     })
+        // }, 10);
+
+        const maxCount = 200000000;
+        const primeN = Prime(maxCount);
+
+
         this.state = {
             counter: 1,
             status: "none",
-            primeNumer: null,
-            maxPrimeNumer: null,
+            primeNumer: primeN,
+            maxPrimeNumer: maxCount,
             isCalculating: false
         }
+
+        // this.setState({
+        //     primeNumer: primeN,
+        //     maxPrimeNumer: maxCount,
+        //     isCalculating: false
+        // })
+
         this.inputRefIncrease = createRef();
         this.inputRefDecrease = createRef();
     }
@@ -28,17 +52,7 @@ class CounterClass extends React.Component {
 
         console.log('Class component rendered');
 
-        // this.setState({ isCalculating: true });
 
-        // setInterval(() => {
-        //     const maxCount = 200000000;
-        //     const primeN = Prime(maxCount);
-        //     this.setState({
-        //         primeNumer: primeN,
-        //         maxPrimeNumer: maxCount,
-        //         isCalculating: false
-        //     })
-        // }, 10)
 
         return <>
             {this.state.isCalculating && (<p><strong>We are calculating please wait ...</strong></p>)}
