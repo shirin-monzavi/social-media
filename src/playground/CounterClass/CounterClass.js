@@ -63,7 +63,13 @@ class CounterClass extends React.Component {
         //         maxPrimeNumer: maxCount,
         //         isCalculating: false
         //     })
+        //     console.log('h')
         // }, 10);
+        let count = 0;
+        this.timer = setInterval(() => {
+            count++;
+            console.log('Count', count)
+        }, 1000)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -72,6 +78,11 @@ class CounterClass extends React.Component {
             console.log('TODO: Save Data');
             this.setState({ displayMessage: true })
         }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        console.log('Class component destroyed')
     }
 }
 
