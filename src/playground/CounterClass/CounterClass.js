@@ -9,7 +9,7 @@ class CounterClass extends React.Component {
             status: "none",
             primeNumer: null,
             maxPrimeNumer: null,
-            isCalculating: true
+            isCalculating: false
         }
 
         this.inputRefIncrease = createRef();
@@ -55,15 +55,23 @@ class CounterClass extends React.Component {
     }
 
     componentDidMount() {
-        setInterval(() => {
-            const maxCount = 200000000;
-            const primeN = Prime(maxCount);
-            this.setState({
-                primeNumer: primeN,
-                maxPrimeNumer: maxCount,
-                isCalculating: false
-            })
-        }, 10);
+        // setInterval(() => {
+        //     const maxCount = 200000000;
+        //     const primeN = Prime(maxCount);
+        //     this.setState({
+        //         primeNumer: primeN,
+        //         maxPrimeNumer: maxCount,
+        //         isCalculating: false
+        //     })
+        // }, 10);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('Component is updated');
+        if (this.state.status !== prevState.status) {
+            console.log('TODO: Save Data');
+            this.setState({ displayMessage: true })
+        }
     }
 }
 

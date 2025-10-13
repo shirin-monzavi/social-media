@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Playground() {
 
     const [user, setUserName] = useState('Mary');
-    const [displayClassCom, setDisplayClassCom] = useState(false);
+    const [displayClassCom, setDisplayClassCom] = useState( );
     const [displayFunctionCom, setDisplayFunctionCom] = useState(false);
 
     const handleUserName = () => {
