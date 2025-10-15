@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import {categories} from '../../includes/variable';
 
 export default function Form({ onHandleAddPost }) {
 
@@ -11,28 +12,7 @@ export default function Form({ onHandleAddPost }) {
     const [showMessage, setShowMessage] = useState(false);
     const [picture, setPicture] = useState('');
     const inputFile = useRef();
-    const categories = [
-        {
-            id: 'edu',
-            title: 'Edication'
-        },
-        {
-            id: 'ent',
-            title: 'Entertaiment'
-        },
-        {
-            id: 'gam',
-            title: 'Game'
-        },
-        {
-            id: 'nws',
-            title: 'News'
-        },
-        {
-            id: 'oth',
-            title: 'Other'
-        }
-    ]
+   
 
     const statuses =
         [

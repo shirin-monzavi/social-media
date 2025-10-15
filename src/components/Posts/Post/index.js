@@ -1,4 +1,6 @@
-export default function Post({ id, title, description, picture, promote, category, like, dislike, onPostLike, onPostDislike , status}) {
+import { categories } from '../../../includes/variable';
+
+export default function Post({ id, title, description, picture, promote, category, like, dislike, onPostLike, onPostDislike, status }) {
 
     const handleLike = () => {
         onPostLike(id)
@@ -7,6 +9,14 @@ export default function Post({ id, title, description, picture, promote, categor
     const handleDisLike = () => {
         onPostDislike(id)
     }
+
+    const getCategory = (id) => {
+        const item=categories.find((c)=>{
+            return c.id===id
+        })
+        return item.title
+    }
+
 
     return (
         <>

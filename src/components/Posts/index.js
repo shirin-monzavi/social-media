@@ -1,5 +1,6 @@
 import Post from "./Post";
 
+
 export default function Posts({ posts, onPostLike, onPostDislike }) {
     let totalLike = 0;
     let totalDislike = 0;
