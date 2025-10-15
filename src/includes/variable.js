@@ -8,7 +8,7 @@ export { categories, getCategory, statuses,getStatus };
 const categories = [
     {
         id: 'edu',
-        title: 'Edication'
+        title: 'Education'
     },
     {
         id: 'ent',
