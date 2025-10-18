@@ -1,0 +1,11 @@
+h3{
+    color:red;
+    margin: 10px;
+    background-color: lime;
+}
+
+.post-text{
+    color:blue;
+    font-size: 25px;
+    text-decoration: underline;
+}
