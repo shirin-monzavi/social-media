@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h3{
+  color:red;
+  background-color: blue;
+  margin: 10 ;
+}
+
+.post-text{
+  text-decoration: underline;
+  color:blue;
+  font-size: 20px;
+}
