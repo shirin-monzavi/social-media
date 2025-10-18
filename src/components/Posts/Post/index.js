@@ -11,7 +11,7 @@ export default function Post({ id, title, description, picture, promote, categor
     }
 
     return (
-        <>
+        <div className='post-item'>
             <h3 >{title}</h3>
             <img src={picture} alt={title} width={100} />
             <p className='post-text'>{description}</p>
@@ -21,6 +21,6 @@ export default function Post({ id, title, description, picture, promote, categor
             <p>Like Counter {like} <button type="button" onClick={handleLike}>Like</button></p>
             <p>DisLike Counter {dislike} <button type="button" onClick={handleDisLike}>DisLike</button></p>
             <hr />
-        </>
+        </div>
     )
 }
