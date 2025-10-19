@@ -1,5 +1,5 @@
 import { getCategory, getStatus } from '../../../includes/variable';
-import './styles.css'
+import './styles.scss'
 export default function Post({ id, title, description, picture, promote, category, like, dislike, onPostLike, onPostDislike, status }) {
 
     const handleLike = () => {
