@@ -9,6 +9,8 @@ export default function Post({ id, title, description, picture, promote, categor
     const handleDisLike = () => {
         onPostDislike(id)
     }
+    const promoteStyle = promote ? 'promote-yes' : 'promote-no';
+    const displikeStyle = dislike >= 5 ? 'too-many-dislike' : '';
 
     return (
         <div className='post-item'>
@@ -16,10 +18,13 @@ export default function Post({ id, title, description, picture, promote, categor
             <img src={picture} alt={title} width={100} />
             <p className='post-text'>{description}</p>
             <p>Category: {getCategory(category)}</p>
-            <p>Promote: {promote ? 'Yes' : 'No'}</p>
+            <p className={promoteStyle}>Promote: {promote ? 'Yes' : 'No'}</p>
             <p>Status: {getStatus(status)}</p>
             <p>Like Counter {like} <button type="button" onClick={handleLike}>Like</button></p>
-            <p>DisLike Counter {dislike} <button type="button" onClick={handleDisLike}>DisLike</button></p>
+            <p className={displikeStyle}
+                style={{ fontSize: 10 + dislike }}
+
+            >DisLike Counter {dislike} <button type="button" onClick={handleDisLike}>DisLike</button></p>
             <hr />
         </div>
     )

@@ -11,5 +11,31 @@
 }
 
 .post-item button{
-    color: pink;
+    background-color: red;
+}
+
+.post-item .promote{
+    background-color: green;
+    color:white;
+    padding: 10px 20px 30px;
+    display: inline-block;
+}
+
+.post-item .promote-yes,.post-item .promote-no{
+    color:white;
+    padding: 10px;
+    display: inline-block;
+}
+
+.post-item .promote-yes{
+    background-color: green;
+}
+
+.post-item .promote-no{
+    background-color: darkred;
+}
+
+.post-item .too-many-dislike{
+    color:fuchsia;
+    font-size: 10;
 }
