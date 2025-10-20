@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import {categories,statuses} from '../../includes/variable';
-
+import './style.scss'
 export default function Form({ onHandleAddPost }) {
 
     const [title, setTitle] = useState('');
@@ -59,7 +59,7 @@ export default function Form({ onHandleAddPost }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-component">
             <hr />
             {showMessage && (<>
                 <p>
@@ -142,7 +142,7 @@ export default function Form({ onHandleAddPost }) {
                 <img src={picture} width={200} alt="Preview" />
             </fieldset>
 
-            <button>Add Post</button>
+          <div> <button>Add Post</button></div> 
         </form>
     );
 }

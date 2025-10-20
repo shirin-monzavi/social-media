@@ -13,12 +13,12 @@ export default function Post({ id, title, description, picture, promote, categor
     const displikeStyle = dislike >= 5 ? 'too-many-dislike' : '';
 
     return (
-        <div className='post-item'>
+        <div className='post-component'>
             <h3 >{title}</h3>
             <img src={picture} alt={title} width={100} />
             <p className='post-text'>{description}</p>
             <p>Category: {getCategory(category)}</p>
-            <p className={promoteStyle}>Promote: {promote ? 'Yes' : 'No'}</p>
+            <p className={promoteStyle}>Promote: <strong> {promote ? 'Yes' : 'No'}</strong></p>
             <p>Status: {getStatus(status)}</p>
             <p>Like Counter {like} <button type="button" onClick={handleLike}>Like</button></p>
             <p className={displikeStyle}

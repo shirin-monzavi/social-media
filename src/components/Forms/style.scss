@@ -1,0 +1,29 @@
+.form-component {
+    div {
+        border-color: yellow;
+        padding: 10;
+        margin: 10;
+
+    }
+
+    label {
+        color: lime;
+
+        input {
+            color: yellow;
+            background-color: green;
+        }
+
+    }
+
+
+    button,
+    ::-webkit-file-upload-button {
+        color: pink;
+        background-color: lightblue;
+
+        &:hover {
+            color: black;
+        }
+    }
+}
