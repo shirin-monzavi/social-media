@@ -1,16 +1,19 @@
+$primary:lightblue;
+
 .form-component {
     div {
-        border-color: yellow;
-        padding: 10;
-        margin: 10;
-
+        border:10px;
+        border-color: $primary;
+        padding: 10px;
+        margin: 10px;
+        border-style:inset 
     }
 
     label {
         color: lime;
 
         input {
-            color: yellow;
+            color: $primary;
             background-color: green;
         }
 
@@ -19,7 +22,7 @@
 
     button,
     ::-webkit-file-upload-button {
-        color: pink;
+        color: $primary;
         background-color: lightblue;
 
         &:hover {
