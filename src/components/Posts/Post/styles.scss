@@ -13,10 +13,6 @@
         text-decoration: underline;
     }
 
-    button {
-        background-color: $primary;
-    }
-
     .promote {
         background-color: green;
         color: white;
@@ -47,4 +43,12 @@
         color: fuchsia;
         font-size: 10;
     }
+
+    button {
+        @include button-style (lightgreen);
+        color: antiquewhite;
+    }
+
+    @include p-style(yellow, 'p');
+    @include p-style(red, 'a');
 }

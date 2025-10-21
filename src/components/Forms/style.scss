@@ -16,19 +16,12 @@
             color: $primary;
             background-color: green;
         }
-
     }
-
 
     button,
     ::-webkit-file-upload-button {
-        color: $primary;
-        background-color: lightblue;
-        font-size: 30;
-        border: solid 1px red;
-
-        &:hover {
-            color: black;
+        @include button-style(lightblue) {
+            font-weight: bold;
         }
     }
 }

@@ -1,5 +1,28 @@
-$primary:red;
+$primary: green;
 
-button{
-    font-size:35px
+@mixin button-style($colorHover) {
+
+    background-color: $primary;
+    color: black;
+    font-size: 20;
+    border: solid 5px green;
+
+    &:hover {
+        color: $colorHover;
+    }
+
+    @content
+};
+
+@mixin p-style($color,$name){
+    .p-#{$name}
+    {
+        color:$color;
+        background-color: lightblue;
+        border: 1px solid orange;
+
+        &:hover{
+            color:wheat
+        }
+    }
 }
