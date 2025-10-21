@@ -2,11 +2,11 @@
 
 .form-component {
     div {
-        border:10px;
+        border: 10px;
         border-color: $primary;
         padding: 10px;
         margin: 10px;
-        border-style:inset 
+        border-style: inset
     }
 
     label {
@@ -24,6 +24,8 @@
     ::-webkit-file-upload-button {
         color: $primary;
         background-color: lightblue;
+        font-size: 30;
+        border: solid 1px red;
 
         &:hover {
             color: black;
