@@ -1,6 +1,6 @@
 export const postStatus = ['Draft', 'Publish', 'Archive'];
 export const postCategoreis = ['Education', 'New ', 'Others'];
-export default 'Social Media app';
+export default 'The Great App';
 export { categories, getCategory, statuses,getStatus };
 /**
  * Categories

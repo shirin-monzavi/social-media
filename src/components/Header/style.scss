@@ -1,0 +1,33 @@
+@import './../../styles//variable.scss';
+
+header.main {
+    font-family: $title-font;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 5px $primary-color;
+
+    svg {
+        color: $secondry-color;
+        font-size: 40px;
+        margin-right: 10px;
+
+        @include screen-style(900px) {
+
+            font-size: 100px;
+            color: darkblue;
+        };
+    }
+
+    h1 {
+        color: $primary-color;
+
+        @include screen-style(900px) {
+
+             font-size: 60px;
+        }
+    }
+
+    @include btn-style
+}
