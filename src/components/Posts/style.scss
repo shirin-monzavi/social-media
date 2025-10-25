@@ -7,4 +7,10 @@ main.post-list {
     @include breakpoint-small{
         padding-right: 0;
     }
+    .total-rate{
+        width: 100%;
+        color: $secondry-color;
+        font-size: 1.2rem;
+        text-align: center;
+    }
 }

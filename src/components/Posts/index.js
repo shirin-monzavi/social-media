@@ -25,7 +25,7 @@ export default function Posts({ posts, onPostLike, onPostDislike }) {
                 })
             }
 
-            <div>Total likes {totalLike} | Total dislike {totalDislike}</div>
+            <div className="total-rate">Total likes {totalLike} | Total dislike {totalDislike}</div>
         </main>
     )
 }
