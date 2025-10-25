@@ -1,0 +1,7 @@
+@import './../../styles/variable.scss';
+
+main.post-list {
+    background-color: $background-color;
+    padding: 5px;
+    display: flex;
+}

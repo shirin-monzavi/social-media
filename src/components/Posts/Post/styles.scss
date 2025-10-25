@@ -1,0 +1,9 @@
+@import './../../../styles/variable.scss';
+
+.post-component{
+    border: solid 1px $background-color;
+    background-color: white;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}

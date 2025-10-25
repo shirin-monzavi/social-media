@@ -1,5 +1,5 @@
 import Post from "./Post";
-
+import './style.scss'
 
 export default function Posts({ posts, onPostLike, onPostDislike }) {
     let totalLike = 0;
@@ -11,8 +11,7 @@ export default function Posts({ posts, onPostLike, onPostDislike }) {
     })
 
     return (
-        <main>
-            <h2>List of posts</h2>
+        <main className="post-list">
             {
                 posts.map((post, index) => {
                     return (
