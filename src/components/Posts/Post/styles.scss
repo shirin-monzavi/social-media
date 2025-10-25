@@ -4,6 +4,12 @@
     border: solid 1px $background-color;
     background-color: white;
     padding: 1rem;
+    margin-bottom: 2rem;
     width: 100%;
     box-sizing: border-box;
+
+    @include breakpoint-small {
+        width: calc( 50% - 2rem);
+        margin-right: 2rem;
+    }
 }

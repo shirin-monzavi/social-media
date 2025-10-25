@@ -2,6 +2,9 @@
 
 main.post-list {
     background-color: $background-color;
-    padding: 5px;
     display: flex;
+    flex-wrap: wrap;
+    @include breakpoint-small{
+        padding-right: 0;
+    }
 }

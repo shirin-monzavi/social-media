@@ -25,7 +25,6 @@ export default function Post({ id, title, description, picture, promote, categor
                 style={{ fontSize: 10 + dislike }}
 
             >DisLike Counter {dislike} <button type="button" onClick={handleDisLike}>DisLike</button></p>
-            <hr />
         </div>
     )
 }
