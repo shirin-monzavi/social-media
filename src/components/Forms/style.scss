@@ -1,0 +1,22 @@
+@import './../../styles/variable.scss';
+
+.form-component {
+    padding: 2rem;
+    color: $secondry-color;
+
+    &>div {
+        margin-bottom: 1rem;
+
+    }
+}
+
+input[type="text"],
+textarea,
+select {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+    color: $secondry-color;
+    border: solid 1px $border-color;
+}
