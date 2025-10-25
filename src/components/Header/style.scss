@@ -1,33 +1,41 @@
 @import './../../styles//variable.scss';
 
 header.main {
-    font-family: $title-font;
-    font-size: 20px;
+
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: solid 5px $primary-color;
+    padding: 5px;
 
     svg {
-        color: $secondry-color;
-        font-size: 40px;
+
+        font-size: 50px;
         margin-right: 10px;
-
-        @include screen-style(900px) {
-
-            font-size: 100px;
-            color: darkblue;
-        };
-    }
-
-    h1 {
         color: $primary-color;
+        @include breakpoint-small {
+            font-size: 50px;
+        }
 
-        @include screen-style(900px) {
-
-             font-size: 60px;
+        @include breakpoint-large {
+            font-size: 60px;
         }
     }
 
-    @include btn-style
+    h1 {
+        color: $secondry-color;
+        font-family: $title-font;
+        font-size: 20px;
+
+        
+        @include breakpoint-small {
+            font-size: 40px;
+        }
+
+        @include breakpoint-large {
+            font-size: 50px;
+        }
+    }
+
+    // @include btn-style
 }

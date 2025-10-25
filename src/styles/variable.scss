@@ -1,22 +1,34 @@
-$title-font:"Lobster", sans-serif;
-$body-font:"Roboto", sans-serif;
-$primary-color:#008080;
-$secondry-color:#64646e;
-$text-color:#34343a;
-$gray-color:#9e9ea4;
-$background-color:#e1e1e9;
-$border-color:#c2c2c6;
-$success-color:#0dc729;
-$danger-color:#cd2424;
+$title-font: "Lobster", sans-serif;
+$body-font: "Roboto", sans-serif;
+$primary-color: #008080;
+$secondry-color: #64646e;
+$text-color: #34343a;
+$gray-color: #9e9ea4;
+$background-color: #e1e1e9;
+$border-color: #c2c2c6;
+$success-color: #0dc729;
+$danger-color: #cd2424;
 
-@mixin screen-style($width){
+@mixin screen-style($width) {
     @media only screen and (min-width:$width) {
         @content;
     }
 }
 
-@mixin btn-style{
-    button{
-        color: red;
+// @mixin btn-style {
+//     button {
+//         color: red;
+//     }
+// }
+
+@mixin breakpoint-small {
+    @include screen-style(600px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-large{
+    @include screen-style(1200px){
+         @content;
     }
 }
