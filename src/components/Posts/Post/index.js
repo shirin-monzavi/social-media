@@ -1,5 +1,7 @@
 import { getCategory, getStatus } from '../../../includes/variable';
 import './styles.scss'
+import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+
 export default function Post({ id, title, description, picture, promote, category, like, dislike, onPostLike, onPostDislike, status }) {
 
     const handleLike = () => {
@@ -9,8 +11,8 @@ export default function Post({ id, title, description, picture, promote, categor
     const handleDisLike = () => {
         onPostDislike(id)
     }
+
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';
-    const displikeStyle = dislike >= 5 ? 'too-many-dislike' : '';
 
     return (
         <div className='post-component'>
@@ -24,9 +26,9 @@ export default function Post({ id, title, description, picture, promote, categor
                 <div>Status: <strong>{getStatus(status)}</strong></div>
                 <div className={promoteStyle}>Promote: <strong> {promote ? 'Yes' : 'No'}</strong></div>
             </div>
-            <div>
-                <button title='like' type="button" className='like' onClick={handleLike}>{like}</button>
-                <button className='dislike' type="button" title='dislike' onClick={handleDisLike}>{dislike}</button>
+            <div className='rate'>
+                <button title='like' type="button" className='like' onClick={handleLike}> <AiFillLike /> {like}</button>
+                <button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>
             </div>
         </div>
     )
