@@ -113,14 +113,14 @@ export default function Form({ onHandleAddPost }) {
                 </label>
             </div>
 
-            <div>
+            <div className="promote-field">
                 <label>
                     <input type="checkbox" checked={promote} onChange={(e) => setPromote(e.target.checked)} />
                     Promote
                 </label>
             </div>
 
-            <div>
+            <div className="status-field">
                 Status:
                 {statuses.map((item) =>
                     <label key={item.id}>

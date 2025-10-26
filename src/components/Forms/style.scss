@@ -4,19 +4,38 @@
     padding: 2rem;
     color: $secondry-color;
 
+    @include breakpoint-small {
+        width: 500px;
+        margin: 0 auto 0 auto;
+    }
+
     &>div {
         margin-bottom: 1rem;
 
     }
-}
 
-input[type="text"],
-textarea,
-select {
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 1rem;
-    padding: 10px;
-    color: $secondry-color;
-    border: solid 1px $border-color;
+    .promote-field,
+    .status-field {
+        display: flex;
+        align-items: center;
+        color: $text-color;
+        line-height: 1.2rem;
+
+        input {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+        color: $secondry-color;
+        border: solid 1px $border-color;
+    }
 }
