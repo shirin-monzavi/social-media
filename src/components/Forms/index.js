@@ -60,13 +60,11 @@ export default function Form({ onHandleAddPost }) {
 
     return (
         <form onSubmit={handleSubmit} className="form-component">
-            {showMessage && (<>
-                <p>
-                    <strong>Form has been submitted !</strong>
-                </p>
-            </>)}
+            {showMessage && (<div className="success-message">
+                Form successfully submitted!
+            </div>)}
             {errorMessages.length > 0 &&
-                <div>
+                <div className="form-validate">
                     Invalid Data:
                     <ul>
                         {errorMessages.map((m) => <li>{m}</li>)}
