@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import {categories,statuses} from '../../includes/variable';
+import { categories, statuses } from '../../includes/variable';
 import './style.scss'
 export default function Form({ onHandleAddPost }) {
 
@@ -136,11 +136,13 @@ export default function Form({ onHandleAddPost }) {
 
             <fieldset>
                 <legend>Picture</legend>
-                <input type="file" onChange={handleFile} ref={inputFile} />
+                <label>Select an image:
+                    <input type="file" onChange={handleFile} ref={inputFile} />
+                </label>
                 <img src={picture} width={200} alt="Preview" />
             </fieldset>
 
-          <div> <button>Add Post</button></div> 
+            <div> <button>Send</button></div>
         </form>
     );
 }

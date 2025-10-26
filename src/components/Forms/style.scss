@@ -28,6 +28,21 @@
         }
     }
 
+    .status-field label{
+        margin-left: 1rem;
+        display: flex;
+    }
+
+    fieldset{
+        border: solid 1px $border-color;
+        margin-bottom: 2rem;
+        display: flex;
+
+        input{
+            width: 100%;
+        }
+    }
+ 
     input[type="text"],
     textarea,
     select {
