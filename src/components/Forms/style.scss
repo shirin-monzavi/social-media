@@ -28,21 +28,30 @@
         }
     }
 
-    .status-field label{
+    .status-field label {
         margin-left: 1rem;
         display: flex;
     }
 
-    fieldset{
+    fieldset {
         border: solid 1px $border-color;
         margin-bottom: 2rem;
         display: flex;
 
-        input{
+        input {
             width: 100%;
         }
     }
- 
+
+    button,
+    ::-webkit-file-upload-button {
+        background-color: $secondry-color;
+        color: white;
+        font-size: 1rem;
+        border: none;
+        padding: 10px 20px;
+    }
+
     input[type="text"],
     textarea,
     select {
