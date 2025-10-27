@@ -3,13 +3,9 @@ import './style.scss';
 import { useSelector } from 'react-redux';
 
 export default function Settings() {
-    const setting1 = useSelector((state) => {
-        console.log('store', state);
-
+    const settings = useSelector((state) => {
         return state.settings;
     });
-
-    console.log('h', setting1)
 
     const handleAllowLikesClick = () => {
         console.log('Allow likes')
@@ -25,13 +21,13 @@ export default function Settings() {
 
             <div className='field' >
                 <label>
-                    <input type='checkbox' checked={null}
+                    <input type='checkbox' checked={settings.allowLike}
                         onChange={handleAllowLikesClick} />
                     Allow Likes
                 </label>
 
                 <label>
-                    <input type='checkbox' checked={null}
+                    <input type='checkbox' checked={settings.allowDislike}
                         onChange={handleAllowDisLikesClick} />
                     Allow DisLikes
                 </label>
