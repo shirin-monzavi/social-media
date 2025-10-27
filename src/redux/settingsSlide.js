@@ -17,7 +17,7 @@ export const settingsSlice = createSlice(
         }
     }
 )
-console.log('slide',settingsSlice)
+
 export const { toggleAllowLike, toggleAllowDisLike } = settingsSlice.actions;
 export default settingsSlice.reducer;
 
