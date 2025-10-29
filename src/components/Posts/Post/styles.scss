@@ -102,9 +102,23 @@
             &.dislike {
 
                 border-radius: 0 20px 20px 0;
-                svg{
-                    color:$danger-color
+
+                svg {
+                    color: $danger-color
                 }
+            }
+        }
+    }
+
+    .rate-single-button {
+        button {
+            &.dislike {
+                border-radius: 20px;
+            }
+
+            &.like {
+                border-right: none;
+                border-radius: 20px;
             }
         }
     }

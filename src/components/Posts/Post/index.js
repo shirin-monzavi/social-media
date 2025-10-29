@@ -17,6 +17,10 @@ export default function Post({ id, title, description, picture, promote, categor
     }
 
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';
+    let rateClassName = 'rate';
+    if (!allowLike || !allowDislike) {
+        rateClassName += ' rate-single-button'
+    }
 
     return (
         <div className='post-component'>
@@ -30,11 +34,11 @@ export default function Post({ id, title, description, picture, promote, categor
                 <div>Status: <strong>{getStatus(status)}</strong></div>
                 <div className={promoteStyle}>Promote: <strong> {promote ? 'Yes' : 'No'}</strong></div>
             </div>
-            <div className='rate'>
+            {(allowLike || allowDislike) && <div className={rateClassName}>
                 {allowLike && (<button title='like' type="button" className='like' onClick={handleLike}> <AiFillLike /> {like}</button>)}
                 {allowDislike && (<button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>)}
+            </div>}
 
-            </div>
         </div>
     )
 }
