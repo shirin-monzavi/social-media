@@ -1,8 +1,12 @@
 import { getCategory, getStatus } from '../../../includes/variable';
 import './styles.scss'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
 export default function Post({ id, title, description, picture, promote, category, like, dislike, onPostLike, onPostDislike, status }) {
+    const { allowLike, allowDislike } = useSelector((state) => {
+        return state.settings
+    })
 
     const handleLike = () => {
         onPostLike(id)
@@ -27,8 +31,9 @@ export default function Post({ id, title, description, picture, promote, categor
                 <div className={promoteStyle}>Promote: <strong> {promote ? 'Yes' : 'No'}</strong></div>
             </div>
             <div className='rate'>
-                <button title='like' type="button" className='like' onClick={handleLike}> <AiFillLike /> {like}</button>
-                <button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>
+                {allowLike && (<button title='like' type="button" className='like' onClick={handleLike}> <AiFillLike /> {like}</button>)}
+                {allowDislike && (<button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>)}
+
             </div>
         </div>
     )

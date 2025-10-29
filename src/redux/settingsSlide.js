@@ -4,8 +4,8 @@ export const settingsSlice = createSlice(
     {
         name: 'settings',
         initialState: {
-            allowLike: false,
-            allowDislike: false,
+            allowLike: true,
+            allowDislike: true,
         },
         reducers: {
             toggleAllowLike: (state) => {
