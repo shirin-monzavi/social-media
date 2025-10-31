@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import settingsReducer from './settingsSlide'
+import settingsReducer from './settingsSlice';
+import postsReducer from './postSlice';
 
 export const store = configureStore({
-    reducer: { settings:settingsReducer },
+    reducer: {
+        settings: settingsReducer,
+        posts: postsReducer
+    },
 });
 

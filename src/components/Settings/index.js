@@ -1,7 +1,6 @@
-
 import './style.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleAllowLike, toggleAllowDisLike } from '../../redux/settingsSlide';
+import { toggleAllowLike, toggleAllowDisLike } from '../../redux/settingsSlice';
 
 export default function Settings() {
     const dispatch = useDispatch();

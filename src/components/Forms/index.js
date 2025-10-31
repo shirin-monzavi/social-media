@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { categories, statuses } from '../../includes/variable';
 import './style.scss'
-export default function Form({ onHandleAddPost }) {
+export default function Form() {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -34,7 +34,6 @@ export default function Form({ onHandleAddPost }) {
         setShowMessage(false)
 
         if (errorMessage.length === 0) {
-            onHandleAddPost(title, description, promote, picture, category, status);
             setTitle('');
             setCategory('');
             setDescription('');

@@ -3,17 +3,17 @@ import './styles.scss'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 
-export default function Post({ id, title, description, picture, promote, category, like, dislike, onPostLike, onPostDislike, status }) {
+export default function Post({ id, title, description, picture, promote, category, like, dislike, status }) {
     const { allowLike, allowDislike } = useSelector((state) => {
         return state.settings
     })
 
     const handleLike = () => {
-        onPostLike(id)
+        //onPostLike(id)
     }
 
     const handleDisLike = () => {
-        onPostDislike(id)
+        //onPostDislike(id)
     }
 
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';

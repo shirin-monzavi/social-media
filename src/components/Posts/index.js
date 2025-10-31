@@ -1,10 +1,14 @@
 import Post from "./Post";
 import './style.scss'
+import { useSelector } from "react-redux";
 
-export default function Posts({ onPostLike, onPostDislike }) {
+export default function Posts() {
     let totalLike = 0;
     let totalDislike = 0;
-    const posts = []; //TODO
+    const posts = useSelector((state) => {
+        return state.posts;
+    });
+
     posts.forEach((post) => {
         totalLike += post.like;
         totalDislike += post.dislike;
@@ -15,11 +19,7 @@ export default function Posts({ onPostLike, onPostDislike }) {
             {
                 posts.map((post, index) => {
                     return (
-                        <Post
-                            key={index}
-                            onPostLike={onPostLike}
-                            onPostDislike={onPostDislike}
-                        />
+                        <Post key={index} {...post} />
                     )
                 })
             }
