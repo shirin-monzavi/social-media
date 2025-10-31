@@ -9,6 +9,11 @@ export default function Posts() {
         return state.posts;
     });
 
+    const { allowLike, allowDislike } = useSelector((state) => {
+        console.log('d',state.settings)
+        return state.settings;
+    })
+
     posts.forEach((post) => {
         totalLike += post.like;
         totalDislike += post.dislike;
@@ -23,8 +28,10 @@ export default function Posts() {
                     )
                 })
             }
+            {(allowLike || allowDislike) && (
+                <div className="total-rate">Total likes {totalLike} | Total dislike {totalDislike}</div>
+            )}
 
-            <div className="total-rate">Total likes {totalLike} | Total dislike {totalDislike}</div>
         </main>
     )
 }
