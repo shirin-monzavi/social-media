@@ -10,7 +10,7 @@ export default function Posts() {
     });
 
     const { allowLike, allowDislike } = useSelector((state) => {
-        console.log('d',state.settings)
+        console.log('d', state.settings)
         return state.settings;
     })
 
@@ -29,7 +29,13 @@ export default function Posts() {
                 })
             }
             {(allowLike || allowDislike) && (
-                <div className="total-rate">Total likes {totalLike} | Total dislike {totalDislike}</div>
+                <div className="total-rate">
+                    {allowLike && (<>  Total likes {totalLike}</>)}
+
+                    {allowLike && allowDislike && <> | </>}
+
+                    {allowDislike && (<>Total dislike {totalDislike}</>)}
+                </div>
             )}
 
         </main>
