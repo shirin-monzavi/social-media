@@ -41,11 +41,23 @@ export const postSlice = createSlice({
     name: 'post',
     initialState: initializePost,
     reducers: {
-        likePost: () => {
-            console.log('Like Post');
+        likePost: (state, action) => {
+            const id = action.payload;
+
+            state.forEach((p => {
+                if (id === p.id) {
+                    p.like++;
+                }
+            }))
         },
-        disLikePost: () => {
-            console.log('Dislike Post');
+        disLikePost: (state, action) => {
+            const id = action.payload;
+
+            state.forEach((p => {
+                if (id === p.id) {
+                    p.dislike++;
+                }
+            }))
         },
         addPost: () => {
             console.log('Add Post');

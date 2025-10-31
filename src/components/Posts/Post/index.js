@@ -1,19 +1,22 @@
 import { getCategory, getStatus } from '../../../includes/variable';
 import './styles.scss'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { likePost, disLikePost } from '../../../redux/postSlice';
 
 export default function Post({ id, title, description, picture, promote, category, like, dislike, status }) {
+    const dispatch = useDispatch();
+
     const { allowLike, allowDislike } = useSelector((state) => {
         return state.settings
     })
 
     const handleLike = () => {
-        //onPostLike(id)
+        dispatch(likePost(id))
     }
 
     const handleDisLike = () => {
-        //onPostDislike(id)
+        dispatch(disLikePost(id))
     }
 
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';
