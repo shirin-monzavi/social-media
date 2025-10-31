@@ -1,7 +1,12 @@
 import { useRef, useState } from "react";
 import { categories, statuses } from '../../includes/variable';
-import './style.scss'
+import './style.scss';
+import { useDispatch } from "react-redux";
+import { addPost } from "../../redux/postSlice"
+    ;
+
 export default function Form() {
+    const dispatch = useDispatch();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -34,6 +39,16 @@ export default function Form() {
         setShowMessage(false)
 
         if (errorMessage.length === 0) {
+            const p = {
+                title,
+                description,
+                promote,
+                picture,
+                category,
+                status
+            };
+
+            dispatch(addPost(p));
             setTitle('');
             setCategory('');
             setDescription('');
@@ -41,7 +56,8 @@ export default function Form() {
             setPicture('');
             setStatues('');
             inputFile.current.value = '';
-            setShowMessage(true)
+            setShowMessage(true);
+
         }
     }
 

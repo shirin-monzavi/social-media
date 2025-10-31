@@ -59,8 +59,22 @@ export const postSlice = createSlice({
                 }
             }))
         },
-        addPost: () => {
-            console.log('Add Post');
+        addPost: (state, action) => {
+            const payload = action.payload;
+
+            const p = {
+                id: uuidv4(),
+                title: payload.title,
+                description: payload.description,
+                promote: payload.promote,
+                picture: payload.picture,
+                category: payload.category,
+                like: 0,
+                dislike: 0,
+                status: payload.status
+            };
+            state.push(p);
+
         }
     }
 });
