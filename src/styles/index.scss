@@ -5,7 +5,7 @@ body {
   margin: 0;
   font-family: $body-font;
   font-size: 16px;
-  color:$text-color;
+  color: $text-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -13,4 +13,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: $title-font;
+  font-size: 37px;
+  font-weight: normal;
+  color: $primary-color;
+  padding: 0;
+  margin: 2rem;
+}
+
+main.page {
+  .container {
+    margin: 2rem;
+  }
+  p{
+color:$secondry-color;
+font-size: 1rem;
+line-height: 1.5rem;
+  }
 }
