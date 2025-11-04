@@ -28,7 +28,7 @@ export default function Post({ id, title, description, picture, promote, categor
     return (
         <>
 
-            <div className='post-component'>
+            <div className='post-component '>
                 <h3 >{title}</h3>
                 <div className='description'>
                     <img src={picture} alt={title} />

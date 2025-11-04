@@ -23,7 +23,7 @@ export default function Posts({ showOnlyPromoted }) {
     }
 
     return (
-        <main className="post-list">
+        <div className="post-list full-width">
             {
                 posts.map((post, index) => {
                     return (
@@ -41,6 +41,6 @@ export default function Posts({ showOnlyPromoted }) {
                 </div>
             )}
 
-        </main>
+        </div>
     )
 }
