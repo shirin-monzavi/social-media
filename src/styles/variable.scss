@@ -15,12 +15,6 @@ $danger-color: #cd2424;
     }
 }
 
-// @mixin btn-style {
-//     button {
-//         color: red;
-//     }
-// }
-
 @mixin breakpoint-small {
     @include screen-style(600px) {
         @content;

@@ -5,7 +5,7 @@ export default function PageContainer({ title,children }) {
                 {title}
             </h1>
             <div className="container">
-                <p>{children}</p>
+                <div>{children}</div>
             </div>
         </main>
 
