@@ -8,6 +8,7 @@ import Preference from "./components/pages/Preference";
 import AboutUs from "./components/pages/AboutUs";
 import HomePage from "./components/pages/HomePage";
 import { Route, Routes } from "react-router-dom";
+import NotFoundPage from "./components/pages/NotFoundPage";
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/posts" element={<PostList />}></Route>
         <Route path="/preferences" element={<Preference />}></Route>
         <Route path="/about-us" element={<AboutUs />}></Route>
+        <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
       <Footer />
     </>
