@@ -2,6 +2,7 @@ import PageContainer from "../../PageContainer";
 import Posts from "../../Posts";
 import Forms from "../../Forms";
 import { Link } from "react-router-dom";
+import './style.scss'
 
 export default function PostList() {
     return (
