@@ -8,10 +8,8 @@ export default function PostItemPage() {
         return s.posts.find((p => p.id === params.id));
     }));
 
-    console.log('post',post)
-
     return (
-        <PageContainer title='Post'>
+        <PageContainer title={post.title}>
             Id:{params.id}
         </PageContainer>
 
