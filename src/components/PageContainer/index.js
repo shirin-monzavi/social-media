@@ -4,7 +4,7 @@ export default function PageContainer({ title, children, className }) {
             <h1>
                 {title}
             </h1>
-            <div className={'container ' + className || ''}>
+            <div className={'container ' + (className || '')}>
                 <div>{children}</div>
             </div>
         </main>
