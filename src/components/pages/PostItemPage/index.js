@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import PageContainer from '../../PageContainer';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import NotFoundPage from '.././NotFoundPage';
+import './style.scss';
 
 export default function PostItemPage() {
     const params = useParams();
@@ -13,9 +14,13 @@ export default function PostItemPage() {
         return (<NotFoundPage />)
     }
     return (
-        <PageContainer title={post.title}>
-            Id:{params.id}
-        </PageContainer>
+        <PageContainer title={post.title} className="post-item-page">
+            <div className='picture'>
+                <img src={post.picture} alt={post.title} />
+            </div>
 
+            <div className='description' >{post.description}</div>
+            <Link to='/posts' className='back-link'>Back</Link>
+        </PageContainer>
     );
 }
