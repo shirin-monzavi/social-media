@@ -8,6 +8,7 @@
     width: 100%;
     box-sizing: border-box;
     margin: 1rem;
+    text-decoration: none;
 
     @include breakpoint-small {
         width: calc(50% - 3rem);

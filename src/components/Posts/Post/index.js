@@ -3,6 +3,7 @@ import './styles.scss'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { likePost, disLikePost } from '../../../redux/postSlice';
+import { Link } from 'react-router-dom';
 
 export default function Post({ id, title, description, picture, promote, category, like, dislike, status }) {
     const dispatch = useDispatch();
@@ -11,11 +12,13 @@ export default function Post({ id, title, description, picture, promote, categor
         return state.settings
     })
 
-    const handleLike = () => {
+    const handleLike = (e) => {
+        e.preventDefault();
         dispatch(likePost(id))
     }
 
-    const handleDisLike = () => {
+    const handleDisLike = (e) => {
+        e.preventDefault();
         dispatch(disLikePost(id))
     }
 
@@ -28,7 +31,7 @@ export default function Post({ id, title, description, picture, promote, categor
     return (
         <>
 
-            <div className='post-component '>
+            <Link className='post-component ' to={'/posts/' + id}>
                 <h3 >{title}</h3>
                 <div className='description'>
                     <img src={picture} alt={title} />
@@ -44,7 +47,7 @@ export default function Post({ id, title, description, picture, promote, categor
                     {allowDislike && (<button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>)}
                 </div>}
 
-            </div>
+            </Link>
         </>
 
     )
