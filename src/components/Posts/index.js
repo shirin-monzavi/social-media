@@ -1,6 +1,7 @@
 import Post from "./Post";
 import './style.scss'
 import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 export default function Posts({ showOnlyPromoted }) {
     let totalLike = 0;
@@ -23,24 +24,27 @@ export default function Posts({ showOnlyPromoted }) {
     }
 
     return (
-        <div className="post-list full-width">
-            {
-                posts.map((post, index) => {
-                    return (
-                        <Post key={index} {...post} />
-                    )
-                })
-            }
-            {(allowLike || allowDislike) && !showOnlyPromoted &&(
-                <div className="total-rate">
-                    {allowLike && (<>  Total likes {totalLike}</>)}
+        <>
+            <div className="post-list full-width">
+                {
+                    posts.map((post, index) => {
+                        return (
+                            <Post key={index} {...post} />
+                        )
+                    })
+                }
+                {(allowLike || allowDislike) && !showOnlyPromoted && (
+                    <div className="total-rate">
+                        {allowLike && (<>  Total likes {totalLike}</>)}
 
-                    {allowLike && allowDislike && <> | </>}
+                        {allowLike && allowDislike && <> | </>}
 
-                    {allowDislike && (<>Total dislike {totalDislike}</>)}
-                </div>
-            )}
+                        {allowDislike && (<>Total dislike {totalDislike}</>)}
+                    </div>
+                )}
 
-        </div>
+            </div>
+
+        </>
     )
 }

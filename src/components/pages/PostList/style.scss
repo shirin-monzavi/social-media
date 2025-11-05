@@ -1,0 +1,16 @@
+
+.add-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        background-color: $primary-color;
+        border-radius: 100%;
+        color: white;
+        text-decoration: none;
+        padding: 1rem 0.5rem;
+        margin-top: 1rem;
+        
+    }
+}

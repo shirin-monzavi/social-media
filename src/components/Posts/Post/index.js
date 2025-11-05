@@ -30,7 +30,6 @@ export default function Post({ id, title, description, picture, promote, categor
 
     return (
         <>
-
             <Link className='post-component ' to={'/posts/' + id}>
                 <h3 >{title}</h3>
                 <div className='description'>

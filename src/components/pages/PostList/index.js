@@ -1,12 +1,15 @@
 import PageContainer from "../../PageContainer";
 import Posts from "../../Posts";
 import Forms from "../../Forms";
+import { Link } from "react-router-dom";
 
 export default function PostList() {
     return (
         <PageContainer title='Post'>
             <Posts showOnlyPromoted={false} />
-            <Forms />
+            <div className="add-post">
+                <Link to='/postform' >Add Post</Link>
+            </div>
         </PageContainer>
     )
 }

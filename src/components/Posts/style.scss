@@ -4,13 +4,16 @@ div.post-list {
     background-color: $background-color;
     display: flex;
     flex-wrap: wrap;
-    @include breakpoint-small{
+
+    @include breakpoint-small {
         padding-right: 0;
     }
-    .total-rate{
+
+    .total-rate {
         width: 100%;
         color: $secondry-color;
         font-size: 1.2rem;
         text-align: center;
     }
+
 }
