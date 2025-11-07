@@ -8,7 +8,8 @@ import { Route, Routes } from "react-router-dom";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import PostItemPage from "./components/pages/PostItemPage";
 import PostFormPage from "./components/pages/PostFormPage";
-
+import AboutUsMission from "./components/pages/AboutUs/mission";
+import AboutUsPrivacy from "./components/pages/AboutUs/privacy";
 
 export default function App() {
 
@@ -21,7 +22,10 @@ export default function App() {
         <Route path="/posts/:id" element={<PostItemPage />}></Route>
         <Route path="/postform" element={<PostFormPage />}></Route>
         <Route path="/preferences" element={<Preference />}></Route>
-        <Route path="/about-us" element={<AboutUs />}></Route>
+        <Route path="/about-us" element={<AboutUs />}>
+          <Route path="mission" element={<AboutUsMission />} />
+          <Route path="privacy" element={<AboutUsPrivacy />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
       <Footer />

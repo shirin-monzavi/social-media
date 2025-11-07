@@ -20,14 +20,15 @@ main.page {
             }
         }
 
-        @include  breakpoint-small{
+        @include breakpoint-small {
             display: flex;
+            align-items: start;
 
-            article{
-                flex:1;
+            article {
+                flex: 1;
             }
 
-            aside{
+            aside {
                 width: 200px;
                 margin-left: 4rem;
                 margin-top: 0;
