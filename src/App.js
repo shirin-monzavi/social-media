@@ -10,6 +10,7 @@ import PostItemPage from "./components/pages/PostItemPage";
 import PostFormPage from "./components/pages/PostFormPage";
 import AboutUsMission from "./components/pages/AboutUs/mission";
 import AboutUsPrivacy from "./components/pages/AboutUs/privacy";
+import AboutUsIntroduction from "./components/pages/AboutUs/Introduction";
 
 export default function App() {
 
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/postform" element={<PostFormPage />}></Route>
         <Route path="/preferences" element={<Preference />}></Route>
         <Route path="/about-us" element={<AboutUs />}>
+          <Route path="" element={<AboutUsIntroduction />} />
           <Route path="mission" element={<AboutUsMission />} />
           <Route path="privacy" element={<AboutUsPrivacy />} />
         </Route>

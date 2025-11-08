@@ -17,6 +17,11 @@ main.page {
                 &:hover {
                     color: $success-color;
                 }
+
+                &.active {
+                    background-color: $secondry-color;
+                    color: white;
+                }
             }
         }
 
