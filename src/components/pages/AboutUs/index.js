@@ -13,7 +13,7 @@ export default function AboutUs() {
                 <NavLink to='/about-us' end>About Us</NavLink>
                 <NavLink to='/about-us/mission'>Our Mission</NavLink>
                 <NavLink to='/about-us/privacy'>Privacy Policy</NavLink>
-            </aside>
+             </aside>
         </PageContainer>
     )
 }
