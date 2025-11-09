@@ -11,8 +11,15 @@ import PostFormPage from "./components/pages/PostFormPage";
 import AboutUsMission from "./components/pages/AboutUs/mission";
 import AboutUsPrivacy from "./components/pages/AboutUs/privacy";
 import AboutUsIntroduction from "./components/pages/AboutUs/Introduction";
+import { useEffect } from "react";
+import { load, save } from "./database";
 
 export default function App() {
+
+  useEffect(() => {
+    //Load the database;
+    load();
+  }, [])
 
   return (
     <>
