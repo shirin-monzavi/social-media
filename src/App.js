@@ -17,14 +17,15 @@ import * as database from './database';
 export default function App() {
 
   useEffect(() => {
-
-    var result = database.load()
-      .then((result) => {
-        console.log(result)
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    var result = database.load();
+    console.log(result);
+    // var result = database.load()
+    //   .then((result) => {
+    //     console.log(result)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
     // const result = database.load();
     // console.log('result', result);
   }, [])
