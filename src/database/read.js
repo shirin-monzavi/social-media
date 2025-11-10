@@ -3,6 +3,7 @@ import { db } from './config';
 
 export function load() {
     const dbCollection = collection(db, "posts");
+    const data = [];
 
     getDocs(dbCollection)
         .then((querySnapshop) => {
@@ -11,7 +12,7 @@ export function load() {
                     ...doc.data(),
                     id: doc.id
                 };
-                console.log('post', post)
+                data.push(post);
             })
         })
         .catch((e) => {
@@ -21,6 +22,8 @@ export function load() {
     // querySnapshop.forEach((doc) => {
     //     console.log(`${doc.id} => ${doc.data()}`);
     // })
+    console.log('data', data)
+    return data;
 }
 
 export function loadById(id) {

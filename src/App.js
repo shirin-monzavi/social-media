@@ -17,13 +17,8 @@ import * as database from './database';
 export default function App() {
 
   useEffect(() => {
-    console.log('database', database);
-    database.update();
-    database.load();
-    //Load the database;
-    // databaseLoad();
-    // save();
-    // update();
+    const result = database.load();
+    console.log('result', result);
   }, [])
 
   return (
