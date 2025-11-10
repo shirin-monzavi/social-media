@@ -12,7 +12,7 @@ export function load() {
                     ...doc.data(),
                     id: doc.id
                 };
-                data.push(post);
+                data .push(post);
             })
         })
         .catch((e) => {
@@ -22,8 +22,9 @@ export function load() {
     // querySnapshop.forEach((doc) => {
     //     console.log(`${doc.id} => ${doc.data()}`);
     // })
-    console.log('data', data)
-    return data;
+    return new Promise((resolve, reject) => {
+        resolve('ok');
+    });
 }
 
 export function loadById(id) {
