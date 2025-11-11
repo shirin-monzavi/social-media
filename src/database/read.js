@@ -17,8 +17,8 @@ export async function load() {
         return data;
 
     } catch {
-         // eslint-disable-next-line 
-        throw 'Failed';
+        
+        throw new Error('Failed');
     }
 }
 

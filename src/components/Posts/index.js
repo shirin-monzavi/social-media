@@ -1,7 +1,6 @@
 import Post from "./Post";
 import './style.scss'
 import { useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
 
 export default function Posts({ showOnlyPromoted }) {
     let totalLike = 0;
@@ -21,6 +20,12 @@ export default function Posts({ showOnlyPromoted }) {
 
     if (showOnlyPromoted) {
         posts = posts.filter((p => p.promote))
+    }
+
+    if (posts.length === 0) {
+        return (<>
+            <div>No post found.</div>
+        </>);
     }
 
     return (

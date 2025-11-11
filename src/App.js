@@ -4,7 +4,7 @@ import PostList from "./components/pages/PostList";
 import Preference from "./components/pages/Preference";
 import AboutUs from "./components/pages/AboutUs";
 import HomePage from "./components/pages/HomePage";
-import {  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import PostItemPage from "./components/pages/PostItemPage";
 import PostFormPage from "./components/pages/PostFormPage";
@@ -13,15 +13,17 @@ import AboutUsPrivacy from "./components/pages/AboutUs/privacy";
 import AboutUsIntroduction from "./components/pages/AboutUs/Introduction";
 import { useEffect } from "react";
 import * as database from './database';
+import { useDispatch } from "react-redux";
+import { setPosts } from "./redux/postSlice";
 
 export default function App() {
+  const dispatch = useDispatch();
 
   useEffect(() => {
 
     (async () => {
-       // eslint-disable-next-line 
       const data = await database.load();
-      console.log('data', data);
+      dispatch(setPosts(data));
     })();
 
   }, [])
