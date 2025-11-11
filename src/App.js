@@ -4,7 +4,7 @@ import PostList from "./components/pages/PostList";
 import Preference from "./components/pages/Preference";
 import AboutUs from "./components/pages/AboutUs";
 import HomePage from "./components/pages/HomePage";
-import { data, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import NotFoundPage from "./components/pages/NotFoundPage";
 import PostItemPage from "./components/pages/PostItemPage";
 import PostFormPage from "./components/pages/PostFormPage";
@@ -19,6 +19,7 @@ export default function App() {
   useEffect(() => {
 
     (async () => {
+       // eslint-disable-next-line 
       const data = await database.load();
       console.log('data', data);
     })();
