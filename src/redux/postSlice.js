@@ -39,7 +39,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const postSlice = createSlice({
     name: 'post',
-    initialState: [],
+    initialState: {
+        posts:[]
+    },
     reducers: {
         likePost: (state, action) => {
             const id = action.payload;
@@ -77,11 +79,13 @@ export const postSlice = createSlice({
 
         },
         setPosts: (state, action) => {
-            console.log('Action', action);
+
+            state.posts = action.payload;
+            console.log('d',state.posts);
         }
     }
 });
 
-export const { likePost, disLikePost, addPost,setPosts } = postSlice.actions;
+export const { likePost, disLikePost, addPost, setPosts } = postSlice.actions;
 export default postSlice.reducer;
 

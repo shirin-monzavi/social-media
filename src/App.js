@@ -20,12 +20,10 @@ export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     (async () => {
       const data = await database.load();
       dispatch(setPosts(data));
     })();
-
   }, [])
 
   return (
