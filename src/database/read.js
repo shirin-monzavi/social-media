@@ -1,6 +1,11 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from './config';
 
+/**
+ * loads all posts
+ * @returns 
+ * all posts
+ */
 export async function load() {
     try {
         const querySnapshop = await getDocs(collection(db, "posts"));
