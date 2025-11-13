@@ -2,13 +2,12 @@ import { useSelector } from 'react-redux';
 import PageContainer from '../../PageContainer';
 import { Link, useParams } from 'react-router-dom';
 import NotFoundPage from '.././NotFoundPage';
+import * as database  from '../../../database';
 import './style.scss';
 
 export default function PostItemPage() {
     const params = useParams();
-    const post = useSelector((s => {
-        return s.posts.find((p => p.id === params.id));
-    }));
+    const post = database.loadById(params.id);
 
     if (!post) {
         return (<NotFoundPage />)

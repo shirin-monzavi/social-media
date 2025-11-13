@@ -53,5 +53,7 @@ function processQuery(querySnapshop) {
 }
 
 export function loadById(id) {
-    console.log('Loading ...', id)
+    console.log('Loading ...', id);
+
+    return null;
 }
