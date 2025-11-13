@@ -1,14 +1,14 @@
 import Post from "./Post";
 import './style.scss'
 import { useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
 
 export default function Posts({ showOnlyPromoted }) {
     let totalLike = 0;
     let totalDislike = 0;
     let posts = useSelector((state) => {
-        return state.posts;
+        return state.post.posts;
     });
+
 
     const { allowLike, allowDislike } = useSelector((state) => {
         return state.settings;
@@ -21,6 +21,11 @@ export default function Posts({ showOnlyPromoted }) {
 
     if (showOnlyPromoted) {
         posts = posts.filter((p => p.promote))
+    }
+    if (posts.length === 0) {
+        return (<>
+            <div>No post found.</div>
+        </>);
     }
 
     return (
