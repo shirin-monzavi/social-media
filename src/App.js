@@ -23,7 +23,9 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const data = await database.load();
+      //const data = await database.load();
+      const data = await database.loadPromoted();
+      console.log(data)
       dispatch(setPosts(data));
       setLoading(false)
     })();
