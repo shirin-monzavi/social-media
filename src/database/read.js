@@ -1,5 +1,6 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore';
 import { db } from './config';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 /**
  * loads all posts
@@ -52,8 +53,23 @@ function processQuery(querySnapshop) {
     return data;
 }
 
-export function loadById(id) {
-    console.log('Loading ...', id);
+/**
+ * Get post by id
+ * @param {number} id 
+ * @returns 
+ * Post by id
+ */
+export async function loadById(id) {
+
+    try {
+        const decRef = doc(db, "posts", id);
+        const docSnap = await getDoc(decRef);
+
+        if (docSnap.exists()) {
+            return docSnap.data();
+        }
+    }
+     catch {}
 
     return null;
 }
