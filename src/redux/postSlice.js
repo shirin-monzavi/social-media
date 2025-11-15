@@ -64,7 +64,7 @@ export const postSlice = createSlice({
         addPost: (state, action) => {
             const payload = action.payload;
 
-            const p = {
+            const data= {
                 id: uuidv4(),
                 title: payload.title,
                 description: payload.description,
@@ -75,13 +75,12 @@ export const postSlice = createSlice({
                 dislike: 0,
                 status: payload.status
             };
-            state.push(p);
+            state.posts.push(data);
 
         },
         setPosts: (state, action) => {
 
             state.posts = action.payload;
-            console.log('d',state.posts);
         }
     }
 });

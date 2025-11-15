@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import { categories, statuses } from '../../includes/variable';
 import './style.scss';
 import { useDispatch } from "react-redux";
-import { addPost } from "../../redux/postSlice"
-    ;
+import { addPost } from "../../redux/postSlice";
+import * as database from "../../database";
 
 export default function Form() {
     const dispatch = useDispatch();
@@ -39,16 +39,20 @@ export default function Form() {
         setShowMessage(false)
 
         if (errorMessage.length === 0) {
-            const p = {
+            const data = {
                 title,
                 description,
                 promote,
                 picture,
                 category,
-                status
+                status,
+                like: 0,
+                dislike: 0,
             };
 
-            dispatch(addPost(p));
+            database.save(data);
+
+            dispatch(addPost(data));
             setTitle('');
             setCategory('');
             setDescription('');

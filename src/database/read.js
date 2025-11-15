@@ -62,9 +62,10 @@ function processQuery(querySnapshop) {
 export async function loadById(id) {
 
     try {
+
         const decRef = doc(db, "posts", id);
         const docSnap = await getDoc(decRef);
-
+console.log('s',docSnap.data())
         if (docSnap.exists()) {
             return docSnap.data();
         }
