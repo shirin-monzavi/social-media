@@ -15,10 +15,11 @@ export default function Form() {
     const [status, setStatues] = useState('');
     const [errorMessages, setErrorMessage] = useState([]);
     const [showMessage, setShowMessage] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
     const [picture, setPicture] = useState('');
     const inputFile = useRef();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         let errorMessage = [];
 
@@ -49,19 +50,28 @@ export default function Form() {
                 like: 0,
                 dislike: 0,
             };
+            setIsSaving(true);
+            const id = await database.save(data);
 
-            database.save(data);
+            if (id) {
+                data.id = id;
 
-            dispatch(addPost(data));
-            setTitle('');
-            setCategory('');
-            setDescription('');
-            setPromote(true);
-            setPicture('');
-            setStatues('');
-            inputFile.current.value = '';
-            setShowMessage(true);
+                dispatch(addPost(data));
+                setTitle('');
+                setCategory('');
+                setDescription('');
+                setPromote(true);
+                setPicture('');
+                setStatues('');
+                if (inputFile.current) {
+                    inputFile.current.value = '';
+                }
 
+                setShowMessage(true);
+            } else {
+                setErrorMessage(['Failed']);
+            }
+            setIsSaving(false);
         }
     }
 
@@ -75,6 +85,10 @@ export default function Form() {
         fileReader.onload = (event) => {
             setPicture(event.target.result)
         }
+    }
+
+    if (isSaving) {
+        return <div>Loading...</div>
     }
 
     return (
