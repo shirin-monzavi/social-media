@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db } from "../database/config.js";
 
 export async function save(data) {
@@ -10,7 +10,13 @@ export async function save(data) {
     }
 }
 
-export function update() {
-    console.log('Updating ...')
+export async function update(id, data) {
+    try {
+        const docRef = doc(db, "posts", id);
+        await updateDoc(docRef, data);
+        return true;
+    } catch {
+        return false;
+    }
 }
 

@@ -4,6 +4,7 @@ import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { likePost, disLikePost } from '../../../redux/postSlice';
 import { Link } from 'react-router-dom';
+import * as database from '../../../database';
 
 export default function Post({ id, title, description, picture, promote, category, like, dislike, status }) {
     const dispatch = useDispatch();
@@ -12,14 +13,24 @@ export default function Post({ id, title, description, picture, promote, categor
         return state.settings
     })
 
-    const handleLike = (e) => {
+    const handleLike = async (e) => {
         e.preventDefault();
         dispatch(likePost(id))
+        const data = { like: like + 1 };
+        var result = await database.update(id, data);
+        if (!result) {
+            alert("Failed to update like. Please refresh the page.")
+        }
     }
 
-    const handleDisLike = (e) => {
+    const handleDisLike = async (e) => {
         e.preventDefault();
-        dispatch(disLikePost(id))
+        dispatch(disLikePost(id));
+        const data = { dislike: dislike + 1 };
+        var result = await database.update(id, data);
+        if (!result) {
+            alert("Failed to update dislike. Please refresh the page.")
+        }
     }
 
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';
