@@ -20,3 +20,11 @@ export async function update(id, data) {
     }
 }
 
+export async function remove(id) {
+    try {
+
+    } catch {
+
+    }
+}
+

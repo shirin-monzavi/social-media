@@ -33,6 +33,10 @@ export default function Post({ id, title, description, picture, promote, categor
         }
     }
 
+    const hadnleRemove = async (event) => {
+        event.preventDefault();
+    }
+
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';
     let rateClassName = 'rate';
     if (!allowLike || !allowDislike) {
@@ -56,7 +60,7 @@ export default function Post({ id, title, description, picture, promote, categor
                     {allowLike && (<button title='like' type="button" className='like' onClick={handleLike}> <AiFillLike /> {like}</button>)}
                     {allowDislike && (<button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>)}
                 </div>}
-
+                <button onClick={hadnleRemove}>Remove </button>
             </Link>
         </>
 
