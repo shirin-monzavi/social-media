@@ -52,9 +52,9 @@ export default function Form() {
             };
             setIsSaving(true);
 
-            const file=inputFile.current.files[0];
+            const file = inputFile.current.files[0];
             database.uploadPicture(file);
-            
+
             const id = await database.save(data);
 
             if (id) {
