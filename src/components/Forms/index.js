@@ -51,6 +51,10 @@ export default function Form() {
                 dislike: 0,
             };
             setIsSaving(true);
+
+            const file=inputFile.current.files[0];
+            database.uploadPicture(file);
+            
             const id = await database.save(data);
 
             if (id) {
