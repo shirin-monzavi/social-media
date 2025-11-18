@@ -2,7 +2,7 @@ import { getCategory, getStatus } from '../../../includes/variable';
 import './styles.scss'
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
-import { likePost, disLikePost } from '../../../redux/postSlice';
+import { likePost, disLikePost, removePost } from '../../../redux/postSlice';
 import { Link } from 'react-router-dom';
 import * as database from '../../../database';
 
@@ -35,6 +35,11 @@ export default function Post({ id, title, description, picture, promote, categor
 
     const hadnleRemove = async (event) => {
         event.preventDefault();
+        dispatch(removePost(id));
+        var result = await database.remove(id);
+        if (!result) {
+            alert("Failed to remove.")
+        }
     }
 
     const promoteStyle = promote ? 'promote-yes' : 'promote-no';
@@ -60,7 +65,7 @@ export default function Post({ id, title, description, picture, promote, categor
                     {allowLike && (<button title='like' type="button" className='like' onClick={handleLike}> <AiFillLike /> {like}</button>)}
                     {allowDislike && (<button className='dislike' type="button" title='dislike' onClick={handleDisLike}> <AiFillDislike /> {dislike}</button>)}
                 </div>}
-                <button onClick={hadnleRemove}>Remove </button>
+                <button onClick={hadnleRemove} className='remove-btn'>Remove </button>
             </Link>
         </>
 

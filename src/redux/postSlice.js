@@ -40,7 +40,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const postSlice = createSlice({
     name: 'post',
     initialState: {
-        posts:[]
+        posts: []
     },
     reducers: {
         likePost: (state, action) => {
@@ -68,10 +68,17 @@ export const postSlice = createSlice({
         setPosts: (state, action) => {
 
             state.posts = action.payload;
+        },
+        removePost: (state, action) => {
+            const result = state.posts.filter((p) => {
+                return p.id !== action.payload;
+            });
+
+            state.posts = result;
         }
     }
 });
 
-export const { likePost, disLikePost, addPost, setPosts } = postSlice.actions;
+export const { likePost, disLikePost, addPost, setPosts, removePost } = postSlice.actions;
 export default postSlice.reducer;
 

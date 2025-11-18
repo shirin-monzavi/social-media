@@ -1,4 +1,4 @@
-import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
+import { addDoc, collection, updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../database/config.js";
 
 export async function save(data) {
@@ -23,8 +23,10 @@ export async function update(id, data) {
 export async function remove(id) {
     try {
 
+        await deleteDoc(doc(db, "posts", id));
+        return true;
     } catch {
-
+        return false;
     }
 }
 

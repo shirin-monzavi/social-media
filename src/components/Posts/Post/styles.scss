@@ -10,6 +10,13 @@
     margin: 1rem;
     text-decoration: none;
 
+    .remove-btn {
+        background-color: $primary-color;
+        border-radius: 100%;
+        border-color: transparent;
+        color: white;
+    }
+
     @include breakpoint-small {
         width: calc(50% - 3rem);
         margin-right: 2rem;
