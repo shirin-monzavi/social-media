@@ -38,8 +38,11 @@ export default function Form() {
 
         setErrorMessage(errorMessage);
         setShowMessage(false)
-
+        setIsSaving(true);
         if (errorMessage.length === 0) {
+            //const file = inputFile.current.files[0];
+            //await database.uploadPicture(file);
+
             const data = {
                 title,
                 description,
@@ -50,11 +53,6 @@ export default function Form() {
                 like: 0,
                 dislike: 0,
             };
-            setIsSaving(true);
-
-            const file = inputFile.current.files[0];
-            database.uploadPicture(file);
-
             const id = await database.save(data);
 
             if (id) {
@@ -70,7 +68,6 @@ export default function Form() {
                 if (inputFile.current) {
                     inputFile.current.value = '';
                 }
-
                 setShowMessage(true);
             } else {
                 setErrorMessage(['Failed']);
