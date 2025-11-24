@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import * as database from './database';
 import { useDispatch } from "react-redux";
 import { setPosts } from "./redux/postSlice";
+import * as restapi from './restapi';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -23,10 +24,10 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      //const data = await database.load();
       const data = await database.loadPromoted();
-      console.log(data)
       dispatch(setPosts(data));
+      const posts = await restapi.read();
+
       setLoading(false)
     })();
   }, [])
