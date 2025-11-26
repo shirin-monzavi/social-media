@@ -26,9 +26,13 @@ export default function App() {
     (async () => {
       const data = await database.loadPromoted();
       dispatch(setPosts(data));
-      const posts = await restapi.read();
-
+      const result = await restapi.read();
       setLoading(false)
+      if (result.success) {
+        return 'ok';
+      }
+      return 'notOk'
+
     })();
   }, [])
 
