@@ -31,6 +31,18 @@ export async function add(data) {
     }
 }
 
+export async function update(data) {
+    try {
+        var response = await axiosInstance.put('/posts/1', data);
+        console.log('update', response);
+        return {
+            success: true
+        }
+    } catch (error) {
+        return writeError(error);
+    }
+}
+
 function writeError(error) {
     const status = error.response.status;
     let message = ''
