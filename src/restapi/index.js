@@ -10,7 +10,7 @@ export async function read() {
         const endpoint = 'posts';
         const response = await axiosInstance.get(endpoint);
         return {
-            success: false,
+            success: true,
             message: response.data
         }
     } catch (error) {
@@ -22,9 +22,24 @@ export async function read() {
 export async function add(data) {
     try {
         const endpoint = 'posts';
-        const response = await axiosInstance.post(endpoint, data);
+        await axiosInstance.post(endpoint, data);
 
-        return response.data;
+        return {
+            success: true
+        }
+
+    } catch (error) {
+        return writeError(error);
+    }
+}
+
+export async function remove(id) {
+    try {
+        const endpoint = 'posts/' + id;
+        await axiosInstance.delete(endpoint);
+        return {
+            success: true
+        }
 
     } catch (error) {
         return writeError(error);
@@ -33,8 +48,7 @@ export async function add(data) {
 
 export async function update(data) {
     try {
-        var response = await axiosInstance.put('/posts/1', data);
-        console.log('update', response);
+        await axiosInstance.put('/posts/1', data);
         return {
             success: true
         }

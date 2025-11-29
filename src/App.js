@@ -24,8 +24,9 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      await restapi.update();
+      //await restapi.update();
       //await restapi.add({})
+      await restapi.remove(1)
       const data = await database.loadPromoted();
       dispatch(setPosts(data));
       //const result = await restapi.read();
