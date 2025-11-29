@@ -10,4 +10,4 @@ export async function uploadPicture(file) {
     const snapShot = await uploadBytes(storageRef, file);
     const url = await getDownloadURL(snapShot.ref);
     return url
-}
+ }

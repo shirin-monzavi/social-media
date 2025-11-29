@@ -1,10 +1,14 @@
 import axios from "axios";
 
+const axiosInstance = axios.create({
+    baseURL: 'https://jsonplaceholder.typicode.com/',
+    timeout: 3000,
+});
+
 export async function read() {
     try {
-        const endpoint = 'https://jsonplaceholder.typicode.com/posts';
-        const response = await axios.get(endpoint);
-
+        const endpoint = 'posts';
+        const response = await axiosInstance.get(endpoint);
         return {
             success: false,
             message: response.data
@@ -13,13 +17,13 @@ export async function read() {
 
         return writeError(error);
     }
-
 }
 
 export async function add(data) {
     try {
-        const endpoint = 'https://jsonplaceholder.typicode.com/posts';
-        const response = await axios.post(endpoint, data);
+        const endpoint = 'posts';
+        const response = await axiosInstance.post(endpoint, data);
+
         return response.data;
 
     } catch (error) {
